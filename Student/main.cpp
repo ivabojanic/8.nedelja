@@ -181,6 +181,89 @@ public:
 };
 int main()
 {
-    cout << "Hello world!" << endl;
+    const char* ime = "Iva";
+    const char* prezime = "Bojanic";
+
+    const char* ime1 = "Ivanka";
+    const char* prezime1 = "Bojankic";
+
+    const char* ime2 = "Mitar";
+    const char* prezime2 = "Miric";
+
+    DinString imence(ime),prezimence(prezime);
+    DinString imence1(ime1),prezimence1(prezime1);
+    DinString imence2(ime2),prezimence2(prezime2);
+
+    Osoba O(ime,prezime);
+    Osoba O1(imence,prezimence);
+    Osoba O2(O);
+
+    Osoba O3(ime1,prezime1);
+    Osoba O4(imence1,prezimence1);
+    Osoba O5(O3);
+
+    Osoba O6(ime2,prezime2);
+    Osoba O7(imence2,prezimence2);
+    Osoba O8(O6);
+
+    Student S(ime,prezime,123);
+    Student S1(imence,prezimence,123);
+    Student S2(O1,123);
+    Student S3(S);
+
+    Student S4(ime1,prezime1,321);
+    Student S5(imence1,prezimence1,321);
+    Student S6(O3,321);
+    Student S7(S4);
+
+    Student S8(ime2,prezime2,987);
+    Student S9(imence2,prezimence2,987);
+    Student S10(O6,987);
+    Student S11(S6);
+
+    PhDStudent PS(ime,prezime,123,10.00);
+    PhDStudent PS1(imence,prezimence,123,10.00);
+    PhDStudent PS2(O1,123,10.00);
+    PhDStudent PS3(PS);
+
+    PhDStudent PS4(ime,prezime,321,8.00);
+    PhDStudent PS5(imence,prezimence,321,8.00);
+    PhDStudent PS6(O1,321,8.00);
+    PhDStudent PS7(PS4);
+
+    PhDStudent PS8(ime,prezime,987,8.59);
+    PhDStudent PS9(imence,prezimence,987,8.59);
+    PhDStudent PS10(O1,987,8.59);
+    PhDStudent PS11(PS8);
+
+    cout<<"Osoba: "<<endl;
+    O.predstaviSe(); cout<<endl;
+
+    cout<<"Student: "<<endl;
+    S.predstaviSe();cout<<endl;
+
+    cout<<"PhDStudent: "<<endl;
+    PS.predstaviSe();cout<<endl;
+
+    cout<<"Osoba 1: "<<endl;
+    O3.predstaviSe(); cout<<endl;
+
+    cout<<"Student 1: "<<endl;
+    S3.predstaviSe();cout<<endl;
+
+    cout<<"PhDStudent 1: "<<endl;
+    PS3.predstaviSe();cout<<endl;
+
+    cout<<"Osoba 2: "<<endl;
+    O8.predstaviSe(); cout<<endl;
+
+    cout<<"Student 2: "<<endl;
+    S8.predstaviSe();cout<<endl;
+
+    cout<<"PhDStudent 2: "<<endl;
+    PS8.predstaviSe();cout<<endl;
+
+
+
     return 0;
 }
