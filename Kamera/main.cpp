@@ -25,7 +25,7 @@ public:
         }
         return false;
     }
-    void ispisi(){cout<<megaPikseli<<","<<freeSpace<<endl;}
+    void ispisi(){cout<<megaPikseli<<","<<freeSpace;}
 };
 int Kamera::photoCounter = 0;
 class VideoKamera : public Kamera
@@ -149,6 +149,7 @@ public:
                     return true;
                 }
             }
+            return false;
         }
         friend DinString operator+(const DinString &ds1, const DinString &ds2)
         {
@@ -220,9 +221,45 @@ public:
     {
         return vk.snimaj(sekunde);
     }
+    void ispisiKamera()
+    {
+        k.ispisi();
+        cout<<","<<k.getCounter()<<","<<vk.getVCounter()<<","<<broj<<endl;
+    }
+    void ispisiVideo()
+    {
+        vk.ispisi();
+        cout<<","<<k.getCounter()<<" "<<vk.getVCounter()<<","<<broj<<endl;
+    }
 };
 int main()
 {
-    cout << "Hello world!" << endl;
+    Kamera K;
+    Kamera K1(12,100);
+    Kamera K2(K);
+
+    K2.Slikaj();
+    cout<<K2.getCounter()<<endl;
+
+    TelefonGen3 T;
+    TelefonGen3 T1(12,100,"066 924 96 86");
+    TelefonGen3 T2(T);
+
+    T.pozovi("064 216 99 93");
+    T.pozovi(")66 924 96 86");
+
+    T.slikajSliku();
+    T1.snimiVideo(10);
+
+    T.ispisiKamera();
+    T1.ispisiVideo();
+
+    T.slikajSliku();
+    T.slikajSliku();
+    T.ispisiKamera();
+
+    T1.snimiVideo(10);
+    T1.snimiVideo(10);
+    T1.ispisiVideo();
     return 0;
 }
